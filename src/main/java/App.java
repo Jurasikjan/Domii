@@ -8,7 +8,8 @@ import java.util.Arrays;
  */
 public class App {
     public static void main(String[] args) {
-        RepMashin.getInstans();
+       // RepMashin.getInstans();
+
         RepMashin.addRoom(new Room("zal"),new Room("detskay"));
 
 

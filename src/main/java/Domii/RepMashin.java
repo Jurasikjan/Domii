@@ -1,6 +1,8 @@
 package Domii;
 
 import Domii.connectSql.datasource.DataSource;
+import Domii.connectSql.datasource.SqlMashin;
+import Domii.connectSql.datasource.SqlWork;
 import Domii.connectSql.model.Room;
 import lombok.Data;
 
@@ -15,23 +17,17 @@ import java.util.List;
 public abstract class RepMashin implements Work {
 
     private static List<Room> rooms;
-    private static DataSource dataSource;
+private static SqlWork sqlWork =new SqlMashin() {};
 
     static {
         rooms = new ArrayList<Room>();
-    }
-
-    private Connection getConnect() {
-        return dataSource.getConnection();
-    }
-
-    public static void getInstans() {
-        dataSource = DataSource.getInstance();
+        SqlMashin.instans();
     }
 
     public static void addRoom(Room... room) {
         for (Room room1 : room) {
             rooms.add(room1);
+            sqlWork.insertSql(room1);
         }
     }
 
@@ -72,4 +68,5 @@ public abstract class RepMashin implements Work {
     protected abstract void ON(String PriborName);
 
     protected abstract void OFF(String PriborName);
+
 }
