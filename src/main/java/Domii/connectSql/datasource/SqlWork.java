@@ -14,10 +14,6 @@ public interface SqlWork {
     void deleteSql(RepMashin mashin);
     void insertSql(RepMashin mashin);
 
-    void setRoomSql(Room room);
     Room getRoomSql(String nameRoom);
-
-    List<RepMashin> getAllRelleSql();
-    List<RepMashin> getAllRoomSql();
 
 }

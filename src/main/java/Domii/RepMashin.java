@@ -3,6 +3,7 @@ package Domii;
 import Domii.connectSql.datasource.DataSource;
 import Domii.connectSql.datasource.SqlMashin;
 import Domii.connectSql.datasource.SqlWork;
+import Domii.connectSql.model.Rellle;
 import Domii.connectSql.model.Room;
 import lombok.Data;
 
@@ -17,7 +18,7 @@ import java.util.List;
 public abstract class RepMashin implements Work {
 
     private static List<Room> rooms;
-private static SqlWork sqlWork =new SqlMashin() {};
+public static SqlWork sqlWork =new SqlMashin() {};
 
     static {
         rooms = new ArrayList<Room>();

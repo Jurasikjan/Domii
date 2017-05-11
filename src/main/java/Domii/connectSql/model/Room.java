@@ -12,18 +12,26 @@ import java.util.List;
 @Data
 public class Room extends RepMashin{
 
+    private int id;
     private String name;
     private List<Rellle> rele;
+private static int colRoom=0;
+
+    public Room() {
+    }
 
     public Room(String name) {
         this.name = name;
         this.rele = new ArrayList<Rellle>();
+        id=++colRoom;
     }
 
-    public void addRelle(String... nameRelle)
+    public void addRelle(Rellle... nameRelle)
     {
-        for (String s : nameRelle) {
-            rele.add(new Rellle(s));
+        for (Rellle s : nameRelle) {
+            s.setId_Room(id);
+            rele.add(s);
+            sqlWork.insertSql(s);
         }
 
     }

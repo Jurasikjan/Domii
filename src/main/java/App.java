@@ -1,4 +1,5 @@
 import Domii.RepMashin;
+import Domii.connectSql.model.Rellle;
 import Domii.connectSql.model.Room;
 
 import java.util.Arrays;
@@ -14,11 +15,11 @@ public class App {
 
 
         Room zal=RepMashin.getRoom("zal");
-        zal.addRelle("lustraZal","telikZal","konder");
+        zal.addRelle(new Rellle("lustraZal"),new Rellle("telikZal"),new Rellle("konder"));
         zal.offRelle("lustraZal");
 
         Room detsk=RepMashin.getRoom("detskay");
-        detsk.addRelle("kompDets","lustraDetsk");
+        detsk.addRelle(new Rellle("kompDets"),new Rellle("lustraDetsk"));
         detsk.offRelle("lustraDetsk");
 
         detsk.onAll();
